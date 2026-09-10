@@ -1,0 +1,27 @@
+
+<div id="profileIconWrap" style="position:fixed;top:{{ icon_top|default(12) }}px;right:14px;z-index:99999;font-family:'Share Tech Mono',monospace;text-align:right;">
+  <div id="profileIconBtn"
+       title="Profile"
+       style="width:32px;height:32px;border-radius:50%;background:rgba(212,172,44,.16);
+              border:1px solid rgba(212,172,44,.55);display:flex;align-items:center;
+              justify-content:center;cursor:pointer;font-size:15px;user-select:none;
+              margin-left:auto;box-shadow:0 0 10px rgba(212,172,44,.15);">
+    &#128100;
+  </div>
+  <div id="profileIconPopup"
+       style="display:none;margin-top:6px;padding:7px 12px;background:rgba(9,7,13,.95);
+              border:1px solid rgba(212,172,44,.45);border-radius:6px;font-size:12px;
+              color:#f0e9d8;white-space:nowrap;letter-spacing:.04em;">
+    Welcome V J
+  </div>
+</div>
+<script>
+(function(){
+  var btn = document.getElementById('profileIconBtn');
+  var pop = document.getElementById('profileIconPopup');
+  if(!btn || !pop) return;
+  btn.addEventListener('click', function(){
+    pop.style.display = (pop.style.display === 'block') ? 'none' : 'block';
+  });
+})();
+</script>

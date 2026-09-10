@@ -1,0 +1,11 @@
+<script>
+(function(){
+  document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+  document.addEventListener('keydown', function(e){
+    var k = e.key ? e.key.toUpperCase() : '';
+    if (e.keyCode === 123) { e.preventDefault(); return false; }
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && (k === 'I' || k === 'J' || k === 'C')) { e.preventDefault(); return false; }
+    if ((e.ctrlKey || e.metaKey) && (k === 'U' || k === 'S')) { e.preventDefault(); return false; }
+  });
+})();
+</script>

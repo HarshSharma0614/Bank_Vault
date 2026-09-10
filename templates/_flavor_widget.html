@@ -1,0 +1,51 @@
+<div class="npc-chat" id="npc-chat">
+  <div class="npc-chat-header">
+    <div class="npc-avatar">&#128100;</div>
+    <div class="npc-chat-titles">
+      <div class="npc-chat-name">Grove St. Comms</div>
+      <div class="npc-chat-status"><span class="npc-dot"></span>We are online</div>
+    </div>
+  </div>
+  <div class="npc-chat-body" id="npc-chat-body"></div>
+</div>
+
+<script>
+  const FLAVOR_POOL = {{ flavor_pool | tojson }};
+  const SPECIAL_LINES = {{ special_lines | default([]) | tojson }};
+  const chatBody = document.getElementById('npc-chat-body');
+  let elapsed = 0;
+
+  function splitSpeaker(text) {
+    const idx = text.indexOf(':');
+    if (idx === -1) return { who: '', body: text };
+    return { who: text.slice(0, idx), body: text.slice(idx + 1).trim() };
+  }
+
+  function addMessage(text) {
+    const { who, body } = splitSpeaker(text);
+    const msg = document.createElement('div');
+    msg.className = 'npc-msg';
+    msg.innerHTML = (who ? '<span class="npc-msg-who">' + who + '</span>' : '') +
+                     '<span class="npc-msg-body"></span>';
+    msg.querySelector('.npc-msg-body').textContent = body;
+    chatBody.appendChild(msg);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  addMessage(FLAVOR_POOL[Math.floor(Math.random() * FLAVOR_POOL.length)]);
+
+  let shownSpecials = new Set();
+  setInterval(() => {
+    elapsed += 1;
+    const special = SPECIAL_LINES.find(s => s.t === elapsed && !shownSpecials.has(s.t));
+    if (special) {
+      shownSpecials.add(special.t);
+      addMessage(special.text);
+    }
+  }, 1000);
+
+  setInterval(() => {
+    const line = FLAVOR_POOL[Math.floor(Math.random() * FLAVOR_POOL.length)];
+    addMessage(line);
+  }, 11000);
+</script>

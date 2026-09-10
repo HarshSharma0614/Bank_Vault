@@ -1,0 +1,33 @@
+{% if reason %}
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box">
+    {% if reason == 'logged_out' %}
+      <div class="modal-emoji" id="modal-emoji" style="animation:none;">&#128274;</div>
+      <div class="modal-title" style="color: var(--sa-green);">LOGGED OUT</div>
+      <div class="modal-sub">Your private session timed out. Please log in again.</div>
+    {% elif reason == 'mission_failed' %}
+      <div class="modal-emoji" id="modal-emoji">&#128128;</div>
+      <div class="modal-title">POLICE ARRIVED</div>
+      <div class="modal-sub">Wanted level hit 100%. Mission Failed.</div>
+    {% elif reason == 'gameover_wrong' %}
+      <div class="modal-emoji" id="modal-emoji">&#128128;</div>
+      <div class="modal-title">YOU LOST!</div>
+      <div class="modal-sub">Goated Puzzel Is Not So Easy.</div>
+    {% else %}
+      <div class="modal-emoji" id="modal-emoji" style="animation:none;">&#9203;</div>
+      <div class="modal-title" style="color: var(--sa-yellow);">SESSION TIMED OUT</div>
+      <div class="modal-sub">Time ran out. Good Luck Next Time.</div>
+    {% endif %}
+    <button onclick="window.location.href='/login'">RESTART</button>
+  </div>
+</div>
+{% if reason in ('mission_failed', 'gameover_wrong') %}
+<script>
+  const emojis = ['\u{1F480}', '\u{1F621}', '\u{1F6A8}', '\u{1F62C}', '\u{1F92C}'];
+  const emojiEl = document.getElementById('modal-emoji');
+  setInterval(() => {
+    emojiEl.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+  }, 400);
+</script>
+{% endif %}
+{% endif %}

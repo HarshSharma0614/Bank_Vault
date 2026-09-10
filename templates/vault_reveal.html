@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assigning Vault...</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <style>
+    body { display:flex; align-items:center; justify-content:center; height:100vh; margin:0; }
+    #reveal-wrap { text-align:center; opacity:0; transition: opacity 1s ease; }
+    #reveal-wrap.in { opacity:1; }
+    #vault-line { font-family:'Rubik Mono One', sans-serif; font-size:2.2rem; color: var(--sa-yellow); margin-bottom:20px; }
+    #cj-portrait { font-size:4rem; margin-top:20px; }
+  </style>
+</head>
+<body>
+  <div id="reveal-wrap">
+    <div id="vault-line">VAULT NO. -- <span id="num">00</span></div>
+    <div id="cj-portrait">&#128526;</div>
+  </div>
+  <script>
+    const wrap = document.getElementById('reveal-wrap');
+    const numEl = document.getElementById('num');
+    const finalNum = {{ vault_no }};
+    const portrait = document.getElementById('cj-portrait');
+
+    setTimeout(() => wrap.classList.add('in'), 100);
+
+    let ticks = 0;
+    const spin = setInterval(() => {
+      numEl.textContent = String(Math.floor(Math.random() * 10) + 1).padStart(2, '0');
+      ticks += 1;
+      if (ticks > 18) {
+        clearInterval(spin);
+        numEl.textContent = String(finalNum).padStart(2, '0');
+      }
+    }, 90);
+
+    let blink = true;
+    setInterval(() => {
+      portrait.textContent = blink ? '\u{1F611}' : '\u{1F60E}';
+      blink = !blink;
+    }, 600);
+
+    setTimeout(() => {
+      wrap.style.opacity = 0;
+      setTimeout(() => { window.location.href = '/'; }, 1000);
+    }, 4200);
+  </script>
+  {% include '_heartbeat.html' %}
+  {% include '_source_protect.html' %}
+</body>
+</html>

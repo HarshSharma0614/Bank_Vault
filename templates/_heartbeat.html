@@ -1,0 +1,7 @@
+<script>
+  function sendHeartbeat() {
+    fetch('/heartbeat', { method: 'POST' }).catch(() => {});
+  }
+  sendHeartbeat();
+  setInterval(sendHeartbeat, (15000 + Math.random() * 5000));
+</script>

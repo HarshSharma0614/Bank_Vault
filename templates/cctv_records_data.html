@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ganton Bank :: CCTV Archive :: Record Recovered</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sa-green:#6fbf3c;
+  --sa-gold:#c9a13a;
+  --sa-gold-bright:#e8c866;
+  --red:#c9503a;
+  --bg:#050704;
+  --panel:rgba(8,12,8,0.82);
+  --border:rgba(120,150,70,0.28);
+  --text:#d8e2c8;
+  --dim:#7c8a6c;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{ margin:0; padding:0; background:var(--bg); color:var(--text); font-family:'IBM Plex Mono',monospace; min-height:100vh; }
+.wrap{ max-width:960px; margin:0 auto; padding:28px 20px 60px; }
+.topline{ display:flex; align-items:center; justify-content:space-between; margin-bottom:22px; flex-wrap:wrap; gap:10px; }
+.brand{ font-family:'Rubik Mono One',sans-serif; font-size:.95rem; color:var(--sa-gold-bright); letter-spacing:1.5px; }
+.back-link{ font-size:.72rem; color:var(--dim); text-decoration:none; letter-spacing:.05em; }
+.back-link:hover{ color:var(--sa-gold-bright); }
+.panel{ background:var(--panel); border:1px solid var(--border); border-radius:4px; padding:22px; margin-bottom:20px; }
+.rec-head{ display:flex; align-items:center; gap:8px; color:var(--sa-green); font-size:.72rem; letter-spacing:.08em; margin-bottom:14px; }
+.rec-head .dot{ width:7px; height:7px; border-radius:50%; background:var(--red); box-shadow:0 0 6px var(--red); animation:pulseDot 1.4s ease-in-out infinite; }
+@keyframes pulseDot{0%,100%{opacity:1;}50%{opacity:.25;}}
+h1{ font-family:'Rubik Mono One',sans-serif; font-size:1.35rem; color:var(--sa-gold-bright); letter-spacing:1px; margin-bottom:8px; }
+.sub{ font-size:.78rem; color:var(--dim); line-height:1.6; margin-bottom:18px; max-width:60ch; }
+
+
+.frame-wrap{
+  position:relative; width:100%; max-width:640px; margin:0 auto;
+  border:1px solid var(--border); border-radius:3px; overflow:hidden;
+  background:#0a0d08;
+}
+.frame-wrap svg{ display:block; width:100%; height:auto; }
+.frame-badges{ position:absolute; top:8px; left:10px; right:10px; display:flex; justify-content:space-between; font-size:.6rem; letter-spacing:.06em; color:rgba(232,200,102,.85); font-family:'IBM Plex Mono',monospace; pointer-events:none; text-shadow:0 0 4px rgba(0,0,0,.8); }
+.frame-badges .rec-tag{ color:#e35b4a; }
+
+.actions{ display:flex; justify-content:center; margin-top:20px; }
+.go-btn{
+  display:inline-block; padding:11px 22px; border-radius:3px; border:1px solid var(--sa-gold);
+  color:#151005; background:linear-gradient(180deg,var(--sa-gold-bright),var(--sa-gold));
+  font-family:'IBM Plex Mono',monospace; font-weight:600; letter-spacing:.05em; font-size:.8rem;
+  text-decoration:none; cursor:pointer; transition:transform .15s ease, box-shadow .15s ease;
+}
+.go-btn:hover{ transform:translateY(-1px); box-shadow:0 6px 18px rgba(201,161,58,.35); }
+.footnote{ text-align:center; margin-top:12px; font-size:.68rem; color:var(--dim); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topline">
+    <div class="brand">GANTON BANK :: CCTV ARCHIVE</div>
+    <a class="back-link" href="/cctv_records">&#8592; back to record search</a>
+  </div>
+
+  <div class="panel">
+    <div class="rec-head"><span class="dot"></span> RECORD RECOVERED &mdash; CAM 07 &mdash; DESK ARCHIVE</div>
+    <h1>ACCESS GRANTED</h1>
+    <p class="sub">The name matched. Buried in this camera's archive is one still frame worth pulling all the
+      way up: whatever's scrawled on that note by the keyboard is the override code the fingerprint
+      scanner is actually waiting for.</p>
+
+    <div class="frame-wrap">
+      <div class="frame-badges">
+        <span class="rec-tag">&#9679; REC</span>
+        <span>CAM-07 :: DESK-ARCHIVE</span>
+      </div>
+      <svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="deskGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2a2a26"/>
+            <stop offset="100%" stop-color="#161613"/>
+          </linearGradient>
+          <linearGradient id="monGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#101914"/>
+            <stop offset="100%" stop-color="#060a07"/>
+          </linearGradient>
+          <filter id="grain">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="noise"/>
+            <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0"/>
+          </filter>
+        </defs>
+
+        
+        <rect x="0" y="0" width="640" height="400" fill="#0d100b"/>
+        <rect x="0" y="230" width="640" height="170" fill="url(#deskGrad)"/>
+
+        
+        <rect x="60" y="90" width="230" height="150" rx="4" fill="#050705" stroke="#333" stroke-width="3"/>
+        <rect x="72" y="102" width="206" height="120" fill="url(#monGrad)"/>
+        <text x="80" y="120" font-family="monospace" font-size="8" fill="#3a5" opacity=".8">EMPLOYEE PORTAL</text>
+        <text x="80" y="134" font-family="monospace" font-size="7" fill="#295" opacity=".7">session active...</text>
+        <rect x="80" y="150" width="150" height="6" fill="#1a3" opacity=".4"/>
+        <rect x="80" y="164" width="110" height="6" fill="#1a3" opacity=".3"/>
+        <rect x="130" y="240" width="20" height="18" fill="#222"/>
+
+        
+        <rect x="70" y="262" width="200" height="46" rx="3" fill="#1b1b18" stroke="#333" stroke-width="1.5"/>
+        <g fill="#2c2c28" stroke="#3a3a34" stroke-width=".6">
+          <rect x="78" y="270" width="16" height="10"/><rect x="98" y="270" width="16" height="10"/>
+          <rect x="118" y="270" width="16" height="10"/><rect x="138" y="270" width="16" height="10"/>
+          <rect x="158" y="270" width="16" height="10"/><rect x="178" y="270" width="16" height="10"/>
+          <rect x="198" y="270" width="16" height="10"/><rect x="218" y="270" width="16" height="10"/>
+          <rect x="238" y="270" width="16" height="10"/>
+          <rect x="78" y="284" width="16" height="10"/><rect x="98" y="284" width="16" height="10"/>
+          <rect x="118" y="284" width="16" height="10"/><rect x="138" y="284" width="16" height="10"/>
+          <rect x="158" y="284" width="16" height="10"/><rect x="178" y="284" width="16" height="10"/>
+          <rect x="198" y="284" width="16" height="10"/><rect x="218" y="284" width="16" height="10"/>
+          <rect x="238" y="284" width="16" height="10"/>
+          <rect x="90" y="298" width="150" height="9"/>
+        </g>
+
+        
+        <ellipse cx="330" cy="300" rx="18" ry="6" fill="#000" opacity=".3"/>
+        <rect x="314" y="268" width="32" height="34" rx="4" fill="#5a3a24"/>
+        <path d="M346 276 q14 4 14 14 q0 10 -14 12" fill="none" stroke="#5a3a24" stroke-width="4"/>
+
+        
+        <g transform="translate(150,215) rotate(-4)">
+          <rect x="-58" y="-40" width="116" height="80" fill="#f4e07a" stroke="#c9a13a" stroke-width="1.5"/>
+          <rect x="-58" y="-40" width="116" height="80" fill="#000" opacity="0"/>
+          <line x1="-46" y1="-18" x2="46" y2="-18" stroke="#00000022" stroke-width="1"/>
+          <text x="0" y="-2" text-anchor="middle" font-family="'Comic Sans MS',cursive" font-size="15"
+                fill="#2a2210" transform="rotate(-2)" style="font-weight:700;">{{ fingerprint_password }}</text>
+          <text x="0" y="26" text-anchor="middle" font-family="'Comic Sans MS',cursive" font-size="8.5"
+                fill="#4a3f1e" transform="rotate(-2)">scanner override -- don't lose this!!</text>
+        </g>
+
+        
+        <rect x="0" y="0" width="640" height="400" fill="url(#monGrad)" opacity="0" filter="url(#grain)"/>
+        <rect x="0" y="0" width="640" height="400" fill="none" stroke="#000" stroke-width="40" opacity=".35"/>
+        <text x="16" y="392" font-family="monospace" font-size="10" fill="#e8c866" opacity=".55">CAM07_2024-11-03_02:41:09</text>
+      </svg>
+    </div>
+
+    <div class="actions">
+      <a class="go-btn" href="/finger_print">&#8594; TAKE IT TO THE SCANNER</a>
+    </div>
+    <div class="footnote">Read the note carefully -- the scanner check is case-insensitive, spacing isn't.</div>
+  </div>
+</div>
+  {% include '_heartbeat.html' %}
+  {% set icon_top = 12 %}
+  {% include '_profile_icon.html' %}
+  {% include '_buzz_sound.html' %}
+  {% include '_source_protect.html' %}
+</body>
+</html>

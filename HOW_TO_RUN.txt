@@ -1,0 +1,22 @@
+GANTON BANK SQLi CTF - HOW TO START THE SERVER
+================================================
+
+Run these from inside the "organizer" folder, in order:
+
+1) Install dependencies
+   pip install -r requirements.txt
+
+2) Build/reset the game database, flag, cipher, CCTV password and wordlist
+   python db_init.py
+
+3) Start the server
+   python app.py
+
+The server starts on http://0.0.0.0:5000 (open http://localhost:5000 in a browser).
+
+Notes:
+- Re-run "python db_init.py" any time you want a fresh flag / passwords /
+  wordlist for a new run. It will NOT wipe player progress unless you
+  call build(reset_players=True) yourself.
+- Restarting "python app.py" re-rolls the login SQLi bypass mode
+  (LOGIN_BYPASS_MODE) for that run.

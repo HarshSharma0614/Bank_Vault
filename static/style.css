@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+:root {
+  --sa-green: #6fbf3c;
+  --sa-yellow: #f4c430;
+  --sa-orange: #e8622c;
+  --bg: #0b0e0a;
+  --panel: #14180f;
+  --text: #d9e0cf;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: radial-gradient(ellipse at top, #1a2210 0%, #0b0e0a 60%);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+h1, h2 {
+  font-family: 'Rubik Mono One', sans-serif;
+  color: var(--sa-yellow);
+  text-shadow: 2px 2px 0 #000;
+  letter-spacing: 1px;
+}
+
+h1 { font-size: 1.8rem; }
+h2 { font-size: 1.1rem; color: var(--sa-green); }
+
+.panel {
+  background: var(--panel);
+  border: 2px solid #2c3a1c;
+  border-radius: 6px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 25px rgba(111,191,60,0.08);
+}
+
+.story {
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+label { display: block; margin-top: 14px; margin-bottom: 4px; color: var(--sa-green); }
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 10px;
+  background: #0d100a;
+  border: 1px solid #3a4a24;
+  color: var(--text);
+  font-family: inherit;
+  border-radius: 4px;
+}
+
+button {
+  margin-top: 18px;
+  background: var(--sa-orange);
+  color: #14180f;
+  border: none;
+  padding: 10px 18px;
+  font-family: 'Rubik Mono One', sans-serif;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover { background: var(--sa-yellow); }
+
+.error {
+  background: #2a0f0f;
+  border: 1px solid #7a2b2b;
+  color: #ff8080;
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.badge {
+  display: inline-block;
+  background: #1c2610;
+  border: 1px solid var(--sa-green);
+  color: var(--sa-green);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+}
+
+a { color: var(--sa-yellow); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid #2c3a1c;
+  font-size: 0.9rem;
+}
+
+th { color: var(--sa-green); }
+
+.footer-nav { margin-top: 24px; font-size: 0.85rem; }
+
+/* ---- new UI: floating popup, modal, wanted stars, door, hidden fields ---- */
+
+.timer-topright {
+  position: fixed;
+  top: 14px;
+  right: 18px;
+  background: var(--panel);
+  border: 2px solid var(--sa-yellow);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 1.1rem;
+  color: var(--sa-yellow);
+  z-index: 500;
+}
+
+.stars-topleft {
+  position: fixed;
+  top: 14px;
+  left: 18px;
+  background: var(--panel);
+  border: 2px solid var(--sa-orange);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 1.2rem;
+  color: var(--sa-orange);
+  z-index: 500;
+  letter-spacing: 2px;
+}
+
+.npc-chat {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  background: #14180f;
+  border: 2px solid var(--sa-green);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  z-index: 600;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.npc-chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: linear-gradient(90deg, #1c2610, #253012);
+  border-bottom: 1px solid #2c3a1c;
+}
+
+.npc-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--sa-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.npc-chat-name {
+  color: var(--sa-yellow);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.npc-chat-status {
+  color: var(--text);
+  font-size: 0.75rem;
+  opacity: 0.75;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.npc-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--sa-green);
+  display: inline-block;
+}
+
+.npc-chat-body {
+  max-height: 180px;
+  overflow-y: auto;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  user-select: text;
+}
+
+.npc-msg {
+  background: #1c2610;
+  border: 1px solid #2c3a1c;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  color: var(--text);
+  user-select: text;
+  cursor: text;
+}
+
+.npc-msg-who {
+  display: block;
+  color: var(--sa-yellow);
+  font-size: 0.72rem;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.npc-msg-body {
+  user-select: text;
+}
+
+.npc-chat-body::-webkit-scrollbar {
+  width: 6px;
+}
+.npc-chat-body::-webkit-scrollbar-thumb {
+  background: var(--sa-green);
+  border-radius: 4px;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background: var(--panel);
+  border: 3px solid var(--sa-orange);
+  border-radius: 12px;
+  padding: 40px 50px;
+  max-width: 560px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 60px rgba(232,98,44,0.4);
+}
+
+.modal-emoji {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+  0%, 100% { transform: rotate(-8deg) scale(1); }
+  50% { transform: rotate(8deg) scale(1.15); }
+}
+
+.modal-title {
+  font-family: 'Rubik Mono One', sans-serif;
+  color: var(--sa-orange);
+  font-size: 1.8rem;
+  margin: 10px 0;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.modal-sub {
+  color: var(--text);
+  margin-bottom: 24px;
+  font-size: 1.05rem;
+}
+
+.door-bar {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  color: var(--sa-green);
+  margin-top: 10px;
+  text-align: center;
+  text-shadow: 0 0 6px rgba(74, 222, 128, 0.55);
+  animation: door-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes door-pulse {
+  0%, 100% { text-shadow: 0 0 4px rgba(74, 222, 128, 0.35); opacity: 0.88; }
+  50% { text-shadow: 0 0 12px rgba(74, 222, 128, 0.9); opacity: 1; }
+}
+
+/* CCTV fingerprint scanner: real input hidden until CSS is removed */
+.fp-decoy {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.4rem;
+  letter-spacing: 4px;
+  color: var(--sa-green);
+  text-align: center;
+  padding: 30px;
+  border: 2px dashed var(--sa-green);
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.fp-real-input {
+  display: none;
+}
+
+.diary-unknown {
+  color: var(--text);
+  text-decoration: none;
+  cursor: text;
+}
+
+.diary-unknown:hover {
+  color: var(--sa-yellow);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ranking-box {
+  border: 2px solid var(--sa-yellow);
+  border-radius: 8px;
+  padding: 18px 24px;
+  margin-top: 16px;
+}
+
+.ranking-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #2c3a1c;
+  font-size: 1.05rem;
+}
